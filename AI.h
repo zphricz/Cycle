@@ -25,25 +25,15 @@ protected:
   const std::vector<PlayerState> *player_states;
   const int your_index;
 
-  bool grid_empty(Coord c) { return (*grid)[c.y * num_cells_x + c.x] == -1; }
-  bool out_of_bounds(Coord c) {
-    return (c.x >= num_cells_x) || (c.x < 0) || (c.y >= num_cells_y) ||
-           (c.y < 0);
-  }
-  const PlayerState& your_player_state() {
-    return (*player_states)[your_index];
-  }
+  bool grid_empty(Coord c);
+  bool out_of_bounds(Coord c);
+  const PlayerState& your_player_state();
 
 public:
-  AI(int num_cells_x, int num_cells_y, int your_index)
-      : num_cells_x(num_cells_x), num_cells_y(num_cells_y),
-        your_index(your_index) {}
+  AI(int num_cells_x, int num_cells_y, int your_index);
   virtual ~AI() {}
   void init_move(const std::vector<int> &original_grid,
-                 const std::vector<PlayerState> &original_player_states) {
-    grid = &original_grid;
-    player_states = &original_player_states;
-  }
+                 const std::vector<PlayerState> &original_player_states);
   virtual Direction move() = 0;
 };
 

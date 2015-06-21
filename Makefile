@@ -1,5 +1,5 @@
 ELFNAME = cycle
-SUBMODULES = Screen
+SUBMODULES = Screen Threadpool
 OBJDIR = objs
 CXXFLAGS = -std=c++14 -Ofast -Wall -Werror
 LDFLAGS = -lSDL2
