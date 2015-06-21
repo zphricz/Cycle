@@ -9,7 +9,7 @@
 
 constexpr int frames_per_update = 2;
 // How much time do all the AIs have in total to run for each frame
-constexpr auto time_for_ai = std::chrono::milliseconds(32);
+constexpr auto time_for_ai = std::chrono::microseconds(32'000);
 // How long to wait for an AI that didn't terminate within its allotted time.
 // If it doesn't complete in this amount of time, the program will abort.
 constexpr auto unresponsive_ai_wait_time = std::chrono::seconds(2);

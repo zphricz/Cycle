@@ -41,7 +41,8 @@ int ZackAI::num_empty_spaces(Coord c) {
   return size;
 }
 
-Direction ZackAI::move() {
+Direction
+ZackAI::move(std::chrono::high_resolution_clock::time_point end_time) {
   const PlayerState &p = your_player_state();
   const Coord &head = p.head;
   Coord up{head.x, head.y - 1};
@@ -61,17 +62,37 @@ Direction ZackAI::move() {
     do_up = true;
     num_spaces_up = num_empty_spaces(up);
   }
+  if (std::chrono::high_resolution_clock::now() +
+          std::chrono::milliseconds(1) >=
+      end_time) {
+    return p.last_move;
+  }
   if (!out_of_bounds(down) && grid_empty(down)) {
     do_down = true;
     num_spaces_down = num_empty_spaces(down);
+  }
+  if (std::chrono::high_resolution_clock::now() +
+          std::chrono::milliseconds(1) >=
+      end_time) {
+    return p.last_move;
   }
   if (!out_of_bounds(left) && grid_empty(left)) {
     do_left = true;
     num_spaces_left = num_empty_spaces(left);
   }
+  if (std::chrono::high_resolution_clock::now() +
+          std::chrono::milliseconds(1) >=
+      end_time) {
+    return p.last_move;
+  }
   if (!out_of_bounds(right) && grid_empty(right)) {
     do_right = true;
     num_spaces_right = num_empty_spaces(right);
+  }
+  if (std::chrono::high_resolution_clock::now() +
+          std::chrono::milliseconds(1) >=
+      end_time) {
+    return p.last_move;
   }
   int max_spaces = -1;
   for (int i = 0; i < 4; ++i) {

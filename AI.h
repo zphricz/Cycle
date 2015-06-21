@@ -2,6 +2,7 @@
 #define AI_H
 
 #include <vector>
+#include <chrono>
 #include "Util.h"
 
 struct PlayerState {
@@ -24,17 +25,19 @@ protected:
   const std::vector<int> *grid;
   const std::vector<PlayerState> *player_states;
   const int your_index;
+  const std::chrono::high_resolution_clock::time_point end_time;
 
   bool grid_empty(Coord c);
   bool out_of_bounds(Coord c);
-  const PlayerState& your_player_state();
+  const PlayerState &your_player_state();
 
 public:
   AI(int num_cells_x, int num_cells_y, int your_index);
   virtual ~AI() {}
   void init_move(const std::vector<int> &original_grid,
                  const std::vector<PlayerState> &original_player_states);
-  virtual Direction move() = 0;
+  virtual Direction
+  move(std::chrono::high_resolution_clock::time_point original_end_time) = 0;
 };
 
 #endif

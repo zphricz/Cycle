@@ -4,7 +4,8 @@
 #include "Game.h"
 
 static void error(char *name) {
-  printf("Usage: %s [num_players] [Cells_x Cells_y] [Screen_x Screen_y]\n", name);
+  printf("Usage: %s [num_players] [Cells_x Cells_y] [Screen_x Screen_y]\n",
+         name);
   exit(1);
 }
 
