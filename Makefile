@@ -14,7 +14,8 @@ ifeq ($(OS), Darwin)
 	CXX = clang++
 endif
 ifeq ($(OS), Linux)
-	CXX = g++
+	CXX = g++-5
+	CXXFLAGS +=-lpthread
 endif
 
 all: $(ELFNAME)

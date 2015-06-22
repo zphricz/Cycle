@@ -339,7 +339,7 @@ void Game::play() {
 
           std::chrono::high_resolution_clock::time_point end_of_waiting =
               std::chrono::high_resolution_clock::now() + time_for_one_round;
-          for (int k = 0; k < std::thread::hardware_concurrency(); ++k) {
+          for (int k = 0; k < (int)std::thread::hardware_concurrency(); ++k) {
             if (j + k >= num_players) {
               break;
             }

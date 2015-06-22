@@ -49,17 +49,12 @@ ZackAI::move(std::chrono::high_resolution_clock::time_point end_time) {
   Coord down{head.x, head.y + 1};
   Coord left{head.x - 1, head.y};
   Coord right{head.x + 1, head.y};
-  bool do_up = false;
-  bool do_down = false;
-  bool do_left = false;
-  bool do_right = false;
   int num_spaces_up = -1;
   int num_spaces_down = -1;
   int num_spaces_left = -1;
   int num_spaces_right = -1;
   Direction chosen_direction = Direction::UP;
   if (!out_of_bounds(up) && grid_empty(up)) {
-    do_up = true;
     num_spaces_up = num_empty_spaces(up);
   }
   if (std::chrono::high_resolution_clock::now() +
@@ -68,7 +63,6 @@ ZackAI::move(std::chrono::high_resolution_clock::time_point end_time) {
     return p.last_move;
   }
   if (!out_of_bounds(down) && grid_empty(down)) {
-    do_down = true;
     num_spaces_down = num_empty_spaces(down);
   }
   if (std::chrono::high_resolution_clock::now() +
@@ -77,7 +71,6 @@ ZackAI::move(std::chrono::high_resolution_clock::time_point end_time) {
     return p.last_move;
   }
   if (!out_of_bounds(left) && grid_empty(left)) {
-    do_left = true;
     num_spaces_left = num_empty_spaces(left);
   }
   if (std::chrono::high_resolution_clock::now() +
@@ -86,7 +79,6 @@ ZackAI::move(std::chrono::high_resolution_clock::time_point end_time) {
     return p.last_move;
   }
   if (!out_of_bounds(right) && grid_empty(right)) {
-    do_right = true;
     num_spaces_right = num_empty_spaces(right);
   }
   if (std::chrono::high_resolution_clock::now() +
