@@ -9,7 +9,7 @@
 
 constexpr int frames_per_update = 2;
 // How much time do all the AIs have in total to run for each frame
-constexpr auto time_for_ai = std::chrono::microseconds(32'000);
+constexpr auto time_for_ai = std::chrono::nanoseconds(32'000'000);
 // How long to wait for an AI that didn't terminate within its allotted time.
 // If it doesn't complete in this amount of time, the program will abort.
 constexpr auto unresponsive_ai_wait_time = std::chrono::seconds(2);
@@ -37,7 +37,7 @@ private:
   const int num_players;
   const int num_cells_x;
   const int num_cells_y;
-  SoftScreen *const scr;
+  PerfSoftScreen *const scr;
   std::vector<int> grid;
   std::vector<Player> players;
   bool game_running;
@@ -55,7 +55,7 @@ private:
   void step_game();
 
 public:
-  Game(int num_players, int num_x, int num_y, SoftScreen *screen);
+  Game(int num_players, int num_x, int num_y, PerfSoftScreen *screen);
   ~Game();
   void play();
 };

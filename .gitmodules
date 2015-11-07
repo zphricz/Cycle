@@ -1,6 +1,6 @@
-[submodule "Screen"]
-	path = Screen
-	url = https://github.com/zphricz/Screen
 [submodule "Threadpool"]
 	path = Threadpool
-	url = https://github.com/zphricz/Threadpool
+	url = https://github.com/zphricz/Threadpool.git
+[submodule "Screen"]
+	path = Screen
+	url = https://github.com/zphricz/Screen.git

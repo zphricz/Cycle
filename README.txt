@@ -8,10 +8,10 @@ It requires SDL2 to run. Run it with:
 
     ./cycle
 
-To specify the number of cells in the game and the resolution to render it by,
-run it with:
+To specify the number of palyers, number of cells in the game, and the
+resolution to render it by, run it with:
 
-    ./cycle [Board_x Board_y] [Screen_x Screen_y]
+    ./cycle [num_players] [Board_x Board_y] [Screen_x Screen_y]
 
 To close the program, press the escape key.
 

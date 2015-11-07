@@ -45,7 +45,7 @@ SDL_Color trail_colors[32] = {{0xFF, 0xFF, 0x00},
                               {0x37, 0x21, 0x01}};
 SDL_Color dead_color{100, 0, 0};
 
-Game::Game(int num_players, int num_x, int num_y, SoftScreen *screen)
+Game::Game(int num_players, int num_x, int num_y, PerfSoftScreen *screen)
     : num_players(num_players), num_cells_x(num_x), num_cells_y(num_y),
       scr(screen), game_running(true) {
   int num_on_left = num_players / 4 + (num_players % 4 > 0);

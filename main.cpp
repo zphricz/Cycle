@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
     full_screen = false;
   }
 
-  SoftScreen scr(screen_width, screen_height, "Cycle", full_screen, true);
+  PerfSoftScreen scr(screen_width, screen_height, "Cycle", full_screen, true);
   Game g(num_players, num_cells_x, num_cells_y, &scr);
   g.play();
   return 0;
