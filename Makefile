@@ -2,6 +2,7 @@ ELFNAME = cycle
 SUBMODULES = Screen Threadpool
 OBJDIR = objs
 CXXFLAGS = -std=c++14 -Ofast -Wall -Werror
+#CXXFLAGS = -std=c++14 -Wall -Werror -O1 -g -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls
 LDFLAGS = -lSDL2
 OS = $(shell uname -s)
 SRC = $(wildcard *.cpp)
